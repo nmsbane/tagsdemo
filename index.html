@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en-us" ng-app="tagsApp">
+    <head>
+        <title>AngularJS Weather Forecast SPA</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta charset="utf-8">
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="styles.css">
+        <style>
+            body, html, input, select, textarea
+            {
+                font-size: 1.05em !important
+            }
+        </style>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script src="https://code.angularjs.org/1.3.0-rc.2/angular.min.js">
+        </script>
+        <script src="https://code.angularjs.org/1.3.0-rc.2/angular-route.min.js">
+        </script>
+        <script src="https://code.angularjs.org/1.3.0-rc.2/angular-resource.min.js">
+        </script>
+        
+        <script src="app.js"></script>
+        
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-default">
+                <div class="container">
+                    <div class="navbar-header">
+                        <a href="/" class="navbar-brand"> Demo to Tags Input</a>
+                        
+                    </div>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#"><i class="fa fa-home"></i>Home</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <div class="container" ng-controller="tagController">
+            <div class="tag-input-ctn">
+                <div ng-repeat="(key, tag) in inputTags" class="input-tag"> 
+                    {{ tag.name }}
+                <div class="delete-tag" ng-click="deleteTag(key)">&times;</div>
+                </div>
+                
+                <input type="text" tag-input="" ng-model="tagText" ng-style="{width:inputWidth}" new-tag="addTag()" delete-tag="deleteTag(key)">
+            </div>
+        </div>
+    </body>
+</html>
