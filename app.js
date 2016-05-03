@@ -24,7 +24,15 @@ app.controller('tagController', ['$scope', function($scope) {
 app.directive('tagInput', function() {
 	return {
 		restrict: 'EA',
-		templateUrl: 'pages/input.html',
+		//templateUrl: 'pages/input.html',
+		template: '<div class="tag-input-ctn">'+
+    '<div ng-repeat="(key, tag) in inputTags" class="input-tag">' +
+        '{{ tag.name }}'+
+    '<div class="delete-tag" ng-click="deleteTag(key)">&times;</div>'+
+    '</div>	'+
+    
+    '<input type="text" ng-model="tagText" >'+
+'</div>',
 		link: function(scope, elem, attr) {
 			scope.inputWidth = 30;
 			// look for changes in ng-model value
