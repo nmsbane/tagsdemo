@@ -12,7 +12,7 @@ app.controller('tagController', ['$scope', function($scope) {
 	}
 
 	$scope.deleteTag = function(key) {
-		if(key == undefined && $scope.inputTags.length > 0) {
+		if(key == undefined && $scope.inputTags.length > 0 && $scope.tagText.length == 0) {
 			$scope.inputTags.pop();
 		} else if (key != undefined && $scope.inputTags.length > 0) {
 			$scope.inputTags.splice(key, 1)	
@@ -23,11 +23,12 @@ app.controller('tagController', ['$scope', function($scope) {
 
 app.directive('tagInput', function() {
 	return {
-		restrict: 'A',
+		restrict: 'EA',
+		templateUrl: 'pages/input.html',
 		link: function(scope, elem, attr) {
 			scope.inputWidth = 30;
 			// look for changes in ng-model value
-			scope.$watch(attr.ngModel, function(value) {
+			scope.$watch("tagText", function(value) {
 				if (value != undefined) {
 					scope.inputWidth = scope.inputWidth + value.length + 5;
 				}

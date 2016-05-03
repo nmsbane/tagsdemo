@@ -39,7 +39,7 @@
             </nav>
         </header>
         <div class="container" ng-controller="tagController">
-            <div class="tag-input-ctn">
+            <!-- <div class="tag-input-ctn">
                 <div ng-repeat="(key, tag) in inputTags" class="input-tag"> 
                     {{ tag.name }}
                 <div class="delete-tag" ng-click="deleteTag(key)">&times;</div>
@@ -47,6 +47,8 @@
                 
                 <input type="text" tag-input="" ng-model="tagText" ng-style="{width:inputWidth}" new-tag="addTag()" delete-tag="deleteTag(key)">
             </div>
+ -->        
+            <tag-input ng-style="{width:inputWidth}" new-tag="addTag()" delete-tag="deleteTag(key)"> </tag-input>
         </div>
     </body>
 </html>

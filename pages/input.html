@@ -1,15 +1,8 @@
 <div class="tag-input-ctn">
-		<span data-ng-repeat="(key, tag) in inputTags" class="input-tag">
-			{{ tag.name }}
-			<div class="delete-tag" data-ng-click="deleteTag(key)">&times;</div>
-		</span>
-
-		<div class="input-group has-feedback">
-            <span class="input-group-addon" id="basic-addon1">Tags</span>
-            <input type="text" class="form-control" placeholder = "Enter tags" aria-describedby="basic-addon1" ng-keypress="addTag($event)"
-                ng-model="tagText">
-        </div>
-
+    <div ng-repeat="(key, tag) in inputTags" class="input-tag"> 
+        {{ tag.name }}
+    <div class="delete-tag" ng-click="deleteTag(key)">&times;</div>
+    </div>	
+    
+    <input type="text" ng-model="tagText" >
 </div>
-
-
